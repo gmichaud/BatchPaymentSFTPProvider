@@ -1,0 +1,32 @@
+﻿<Sql TableName="CCProcessingCenter" TableSchemaXml="#CDATA">
+    <CDATA name="TableSchemaXml"><![CDATA[<table name="CCProcessingCenter">
+  <col name="CompanyID" type="Int" default="Zero" />
+  <col name="ProcessingCenterID" type="NVarChar(10)" />
+  <col name="Name" type="NVarChar(255)" />
+  <col name="IsActive" type="Bit" default="Zero" />
+  <col name="CashAccountID" type="Int" />
+  <col name="ProcessingTypeName" type="VarChar(255)" nullable="true" />
+  <col name="ProcessingAssemblyName" type="VarChar(255)" nullable="true" />
+  <col name="CreatedByID" type="UniqueIdentifier" />
+  <col name="CreatedByScreenID" type="Char(8)" />
+  <col name="CreatedDateTime" type="DateTime" />
+  <col name="LastModifiedByID" type="UniqueIdentifier" />
+  <col name="LastModifiedByScreenID" type="Char(8)" />
+  <col name="LastModifiedDateTime" type="DateTime" />
+  <col name="tstamp" type="Timestamp" />
+  <col name="OpenTranTimeout" type="Int" nullable="true" />
+  <col name="AllowDirectInput" type="Bit" nullable="true" />
+  <col name="SyncronizeDeletion" type="Bit" />
+  <col name="SyncRetryAttemptsNo" type="Int" nullable="true" />
+  <col name="SyncRetryDelayMs" type="Int" nullable="true" />
+  <col name="NoteID" type="UniqueIdentifier" nullable="true" />
+  <index name="CCProcessingCenter_NoteID">
+    <col name="NoteID" />
+    <col name="CompanyID" />
+  </index>
+  <index name="CCProcessingCenter_PK" clustered="true" primary="true" unique="true">
+    <col name="CompanyID" />
+    <col name="ProcessingCenterID" />
+  </index>
+</table>]]></CDATA>
+</Sql>

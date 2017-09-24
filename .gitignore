@@ -1,0 +1,14 @@
+source/BatchPaymentSFTPProvider/BatchPaymentSFTPProvider/bin/
+source/BatchPaymentSFTPProvider/BatchPaymentSFTPProvider/obj/
+source/BatchPaymentSFTPProviderAP/.vs/
+source/BatchPaymentSFTPProviderAP/BatchPaymentSFTPProviderAP/bin/
+source/BatchPaymentSFTPProviderAP/BatchPaymentSFTPProviderAP/obj/
+source/BatchPaymentSFTPProviderAP/packages/
+source/BatchPaymentSFTPProviderAP/PX.DDProcessing/bin/
+source/BatchPaymentSFTPProviderAP/PX.DDProcessing/obj/
+source/BatchPaymentSFTPProviderAR/BatchPaymentSFTPProviderAR/bin/
+source/BatchPaymentSFTPProviderAR/.vs/
+source/BatchPaymentSFTPProviderAR/BatchPaymentSFTPProviderAR/obj/
+source/BatchPaymentSFTPProviderAR/packages/
+source/BatchPaymentSFTPProviderAR/PX.Objects.ACH/bin/
+source/BatchPaymentSFTPProviderAR/PX.Objects.ACH/obj/
