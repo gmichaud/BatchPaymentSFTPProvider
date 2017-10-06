@@ -27,15 +27,17 @@ namespace PX.DDProcessing
             public static class Key
             {
                 public const string URLConnection = "URLCONNECT";
+                public const string Port = "PORT";
                 public const string LoginID = "LOGINID";
                 public const string TranKey = "TRANKEY";
                 public const string BankName = "BANKNAME";
                 public const string Path = "PATH";
             }
-            
+
             public static class Default
             {
                 public const string URLConnection = "";
+                public const string Port = "";
                 public const string LoginID = "";
                 public const string TranKey = "";
                 public const string BankName = "";
@@ -46,12 +48,12 @@ namespace PX.DDProcessing
             public static class Descr
             {
                 public const string URLConnection = "URL for connecting to the SFTP Site";
+                public const string Port = "(Optional) Port used for connecting to the SFTP Site";
                 public const string LoginID = "Your Login";
                 public const string TranKey = "Your Password";
                 public const string BankName = "Bank Name";
                 public const string Path = "Folder Path (blank for root)";
             }
-
         }
 
         private class FTPDirectDepositDetail : ISettingsDetail
@@ -101,6 +103,8 @@ namespace PX.DDProcessing
                 this.Settings[SettingsKeys.Key.BankName] = new FTPDirectDepositDetail(SettingsKeys.Key.BankName, PXLocalizer.Localize(SettingsKeys.Descr.BankName), SettingsKeys.Default.BankName);
             if (!this.Settings.ContainsKey(SettingsKeys.Key.URLConnection))
                 this.Settings[SettingsKeys.Key.URLConnection] = new FTPDirectDepositDetail(SettingsKeys.Key.URLConnection, PXLocalizer.Localize(SettingsKeys.Descr.URLConnection), SettingsKeys.Default.URLConnection);
+            if (!this.Settings.ContainsKey(SettingsKeys.Key.Port))
+                this.Settings[SettingsKeys.Key.Port] = new FTPDirectDepositDetail(SettingsKeys.Key.Port, PXLocalizer.Localize(SettingsKeys.Descr.Port), SettingsKeys.Default.Port);
             if (!this.Settings.ContainsKey(SettingsKeys.Key.LoginID))
                 this.Settings[SettingsKeys.Key.LoginID] = new FTPDirectDepositDetail(SettingsKeys.Key.LoginID, PXLocalizer.Localize(SettingsKeys.Descr.LoginID), SettingsKeys.Default.LoginID);
             if (!this.Settings.ContainsKey(SettingsKeys.Key.TranKey))
@@ -147,13 +151,9 @@ namespace PX.DDProcessing
 
         public override void TestCredentials(APIResponse apiResponse)
         {
-            var url = this.Settings[SettingsKeys.Key.URLConnection].Value;
-            var username = this.Settings[SettingsKeys.Key.LoginID].Value;
-            var password = this.Settings[SettingsKeys.Key.TranKey].Value;
-
             try
             {
-                var sftpClient = new SftpClient(url, username, password);
+                var sftpClient = GetSftpClient();
                 sftpClient.Connect();
                 apiResponse.ErrorSource = CCErrors.CCErrorSource.None;
                 apiResponse.isSucess = true;
@@ -173,14 +173,11 @@ namespace PX.DDProcessing
         public override bool DoTransaction(string fileName, byte[] file, out string message)
         {
             message = string.Empty;
-            var url = this.Settings[SettingsKeys.Key.URLConnection].Value;
-            var username = this.Settings[SettingsKeys.Key.LoginID].Value;
-            var password = this.Settings[SettingsKeys.Key.TranKey].Value;
             var path = this.Settings[SettingsKeys.Key.Path].Value;
             
             try
             {
-                var sftpClient = new SftpClient(url, username, password);
+                var sftpClient = GetSftpClient();
                 sftpClient.Connect();
                 sftpClient.WriteAllBytes(Path.Combine(path,fileName).Replace("\\", "/"), file);
                 return true;
@@ -193,5 +190,23 @@ namespace PX.DDProcessing
         }
         
         #endregion
+
+        private SftpClient GetSftpClient()
+        {
+            var url = this.Settings[SettingsKeys.Key.URLConnection].Value;
+            var username = this.Settings[SettingsKeys.Key.LoginID].Value;
+            var password = this.Settings[SettingsKeys.Key.TranKey].Value;
+            var portString = this.Settings[SettingsKeys.Key.Port].Value;
+            int port;
+
+            if(!string.IsNullOrEmpty(portString) && int.TryParse(portString, out port))
+            {
+                return new SftpClient(url, port, username, password);
+            }
+            else
+            {
+                return new SftpClient(url, username, password);
+            }
+        }
     }
 }
