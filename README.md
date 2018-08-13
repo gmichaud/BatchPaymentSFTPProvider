@@ -3,6 +3,7 @@ Allows the secure transfer over SFTP of ACH documents for AP/AR payments.
 
 ### Prerequisites
 * Acumatica 5.3 or higher
+* SSH.NET https://github.com/sshnet/SSH.NET
 
 # Quick Start
 ### Installation
