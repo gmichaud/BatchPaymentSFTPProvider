@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BatchPaymentSFTPProviderAR</RootNamespace>
     <AssemblyName>BatchPaymentSFTPProviderAR</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -33,11 +34,11 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="PX.Data">
-      <HintPath>..\..\..\Program Files (x86)\Acumatica ERP\A5.30.4103\Bin\PX.Data.dll</HintPath>
+    <Reference Include="PX.Common">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Acumatica ERP\LTApparel\Bin\PX.Common.dll</HintPath>
     </Reference>
-    <Reference Include="PX.Objects">
-      <HintPath>..\..\..\Program Files (x86)\Acumatica ERP\A5.30.4103\Bin\PX.Objects.dll</HintPath>
+    <Reference Include="PX.Data">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Acumatica ERP\LTApparel\Bin\PX.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -53,9 +54,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PX.Objects.ACH\PX.Objects.ACH.csproj">
+    <ProjectReference Include="..\..\..\..\DirectDebitAccountReceivable\PX.Objects.ACH\PX.Objects.ACH.csproj">
       <Project>{9731b6c8-5d6b-4b3c-a005-3b676d661351}</Project>
       <Name>PX.Objects.ACH</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BatchPaymentSFTPProvider\BatchPaymentSFTPProvider\BatchPaymentSFTPProvider.csproj">
+      <Project>{643f102a-d9bf-4dd6-8c7f-5c022784dc64}</Project>
+      <Name>BatchPaymentSFTPProvider</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
