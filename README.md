@@ -2,8 +2,8 @@
 Allows the secure transfer over SFTP of ACH documents for AP/AR payments.
 
 ### Prerequisites
-* Acumatica 5.3 or higher
-* SSH.NET https://github.com/sshnet/SSH.NET
+* Acumatica 2018 R2 or higher
+* [Acumatica Direct Deposit Customization - PX.Objects.ACH.dll](https://github.com/Acumatica/DirectDebitAccountReceivable)
 
 # Quick Start
 ### Installation
@@ -26,14 +26,13 @@ To compile the solution for AP Batch payment, follow these steps :
 1. Publish BatchPaymentSFTPProvider.zip and BatchPaymentSFTPProviderAP.zip to your website.
 2. Run "source\BatchPaymentSFTPProviderAP\BatchPaymentSFTPProviderAP.sln"
 3. Replace PX.CCProcessingBase, PX.Common, PX.Data, PX.Objects missing references for both project with the corresponding dlls found in the bin folder of your website.
-4. Install the missing nugget package Renci.SshNet on BatchPaymentSFTPProvider project.
-5. Delete BatchPaymentSFTPProvider.dll and BatchPaymentSFTPProviderAP.dll from your website bin folder
-6. Include your website in the solution and add the 2 projects as reference to the web site bin folder.
-7. Build the solution and reload your website. You should now have the latest compiled code deployed on your website.
+4. Delete BatchPaymentSFTPProvider.dll and BatchPaymentSFTPProviderAP.dll from your website bin folder
+5. Include your website in the solution and add the 2 projects as reference to the web site bin folder.
+6. Build the solution and reload your website. You should now have the latest compiled code deployed on your website.
 
 
 ## Copyright and License
 
-Copyright © `2017` `Acumatica`
+Copyright © `2018` `Acumatica`
 
 This component is licensed under the MIT License, a copy of which is available online at https://github.com/Acumatica/BatchPaymentSFTPProvider/blob/master/LICENSE
