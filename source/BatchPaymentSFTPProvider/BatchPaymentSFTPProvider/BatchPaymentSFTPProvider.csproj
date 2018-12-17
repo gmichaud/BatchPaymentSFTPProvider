@@ -31,21 +31,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="PX.CCProcessingBase">
-      <HintPath>..\..\..\..\..\Program Files (x86)\Acumatica ERP\LTApparel\Bin\PX.CCProcessingBase.dll</HintPath>
-    </Reference>
-    <Reference Include="PX.Common">
-      <HintPath>..\..\..\..\..\Program Files (x86)\Acumatica ERP\LTApparel\Bin\PX.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="PX.Data">
-      <HintPath>..\..\..\..\..\Program Files (x86)\Acumatica ERP\LTApparel\Bin\PX.Data.dll</HintPath>
-    </Reference>
-    <Reference Include="PX.Objects">
-      <HintPath>..\..\..\..\..\Program Files (x86)\Acumatica ERP\LTApparel\Bin\PX.Objects.dll</HintPath>
-    </Reference>
-    <Reference Include="Renci.SshNet, Version=2017.0.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+    <Reference Include="PX.CCProcessingBase, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Program Files (x86)\Acumatica ERP\LTApparel\Bin\Renci.SshNet.dll</HintPath>
+      <HintPath>..\..\..\..\..\Program Files (x86)\Acumatica ERP\AcumaticaDemo70\Bin\PX.CCProcessingBase.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Program Files (x86)\Acumatica ERP\AcumaticaDemo70\Bin\PX.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Program Files (x86)\Acumatica ERP\AcumaticaDemo70\Bin\PX.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Objects, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Program Files (x86)\Acumatica ERP\AcumaticaDemo70\Bin\PX.Objects.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -68,6 +68,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\SSH.NET-develop\src\Renci.SshNet\Renci.SshNet.csproj">
+      <Project>{2f5f8c90-0bd1-424f-997c-7bc6280919d1}</Project>
+      <Name>Renci.SshNet</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

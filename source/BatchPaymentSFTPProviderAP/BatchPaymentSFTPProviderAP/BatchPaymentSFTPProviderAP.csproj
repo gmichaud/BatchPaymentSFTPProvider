@@ -33,11 +33,11 @@
   <ItemGroup>
     <Reference Include="PX.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Program Files (x86)\Acumatica ERP\LTApparel\Bin\PX.Data.dll</HintPath>
+      <HintPath>..\..\..\..\..\Program Files (x86)\Acumatica ERP\AcumaticaDemo70\Bin\PX.Data.dll</HintPath>
     </Reference>
     <Reference Include="PX.Objects, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Program Files (x86)\Acumatica ERP\LTApparel\Bin\PX.Objects.dll</HintPath>
+      <HintPath>..\..\..\..\..\Program Files (x86)\Acumatica ERP\AcumaticaDemo70\Bin\PX.Objects.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
